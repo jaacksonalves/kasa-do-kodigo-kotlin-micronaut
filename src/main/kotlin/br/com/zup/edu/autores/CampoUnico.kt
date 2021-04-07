@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 @MustBeDocumented
 @Target(FIELD, CONSTRUCTOR)
 @Retention(RUNTIME)
-@Constraint(validatedBy = [])
+@Constraint(validatedBy = [CampoUnicoValidator::class])
 annotation class CampoUnico(
     val field: String,
     val domainClass: KClass<*>,
