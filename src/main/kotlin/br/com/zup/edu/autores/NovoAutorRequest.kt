@@ -9,7 +9,11 @@ import javax.validation.constraints.Size
 @Introspected
 data class NovoAutorRequest(
     @field:NotBlank val nome: String,
-    @field:NotBlank @field:Email @field:CampoUnico(field = "email", domainClass = Autor::class) val email: String,
+    @field:NotBlank @field:Email @field:CampoUnico(
+        field = "email",
+        domainClass = Autor::class,
+        message = "Email já cadastrado"
+    ) val email: String,
     @field:NotBlank @field:Size(min = 5, max = 400) val descricao: String,
     @field:NotBlank @field:Pattern(
         regexp = "^[0-9]{8}\$",
